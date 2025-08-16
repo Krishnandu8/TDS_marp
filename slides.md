@@ -94,4 +94,4 @@ Inline notation still works: overall complexity is \(O(n \log n)\).
 - **Questions:** 24ds2000075@ds.study.iitm.ac.in
 - **Hand-off:** Add new slides in PRs; CI will rebuild artifacts.
 
-> Docs are part of the product—treat them like code.
+> Docs are part of the product—treat them like code. 
