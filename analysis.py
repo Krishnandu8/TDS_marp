@@ -3,23 +3,22 @@
 
 import marimo as mo
 
+# Create the app
 app = mo.App()
 
 @app.cell
 def __(mo):
     """
     Data source cell
-    - Generates a simple dataset with a linear relationship plus noise.
-    - Outputs: df (DataFrame with columns 'x' and 'y')
+    Generates a dataset with a linear relationship plus noise.
+    Output: df (DataFrame with columns x and y)
     """
     import numpy as np
     import pandas as pd
-
     rng = np.random.default_rng(42)
     n = 200
     x = np.linspace(0, 10, n)
     y = 2.0 * x + 5 + rng.normal(0, 3, n)
-
     df = pd.DataFrame({"x": x, "y": y})
     return df
 
@@ -27,7 +26,7 @@ def __(mo):
 def __(mo):
     """
     UI control cell
-    - Provides an interactive slider controlling smoothing window size.
+    Slider to adjust smoothing window size.
     """
     slider = mo.ui.slider(3, 51, value=11, step=2, label="Smoothing window (odd)")
     return slider
@@ -36,8 +35,8 @@ def __(mo):
 def __(df, slider, mo):
     """
     Transform & summary cell
-    - Depends on: df, slider.value
-    - Computes smoothed y and correlation with x
+    Depends on: df, slider.value
+    Computes smoothed y and correlation with x
     """
     window = slider.value
     smoothed = df["y"].rolling(window=window, min_periods=1, center=True).mean()
@@ -47,18 +46,15 @@ def __(df, slider, mo):
     idx = min(int(abs(corr) / 0.2), 4)
     bar = "🟩" * (idx + 1) + "⬜" * (5 - (idx + 1))
 
-    report = mo.md(
-        f"""
+    report = mo.md(f"""
 ### Relationship summary
 
 - Window size: **{window}**
 - Pearson correlation: **{corr:.3f}**
 - Strength: **{strength_labels[idx]}** {bar}
 
-> Move the slider to change smoothing and see correlation update.
-"""
-    )
-
+> Move the slider to see how smoothing affects correlation.
+""")
     return smoothed, corr, report
 
 @app.cell
