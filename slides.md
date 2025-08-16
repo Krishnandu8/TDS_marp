@@ -10,58 +10,58 @@ math: mathjax
 ---
 
 <!-- _class: lead -->
-# Product documentation as code with Marp
+# 📘 Product Documentation with Marp
 
 - **Author:** Technical Writer  
 - **Email:** 24ds2000075@ds.study.iitm.ac.in  
-- **Repo:** Version-controlled Markdown → export to HTML/PDF/PPTX
+- **Repo:** Markdown-based docs with version control and CI deployment
 
-> Document once, ship everywhere.
-
----
-
-## Why Marp for product docs
-
-- **Single source:** Author in Markdown; render to multiple formats.
-- **Versioning:** Review changes via Git diffs and PRs.
-- **Automation:** CI can publish HTML/PDF on every release.
-- **Styling:** Custom theme for consistent brand look.
+> Write once, publish everywhere.
 
 ---
 
-## Authoring conventions
+## 🛠 Why Marp for Technical Docs
 
-- **Structure:** Use top-level headings for slide titles; concise bullets.
-- **Directives:** Per-slide YAML directives configure backgrounds, classes, and layout.
-- **Reusable styles:** Theme class names (e.g., `.card`, `.lead`) keep slides consistent.
+- **Single source of truth:** Markdown → HTML, PDF, PPTX
+- **Version-controlled:** Git diffs, pull requests, and history
+- **CI-friendly:** Auto-publish on every push
+- **Customizable:** Themes, directives, and background assets
 
-> Tip: Keep each concept scoped to one slide.
+---
+
+## ✍️ Authoring Guidelines
+
+- Use top-level headings for slide titles
+- Keep bullets concise and scoped per slide
+- Use directives for layout, backgrounds, and styling
+- Apply reusable theme classes like `.card` and `.lead`
 
 ---
 
 <!-- _background: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"><rect width="100%" height="100%" fill="%230b1020"/><circle cx="80%" cy="10%" r="400" fill="%2314203b"/></svg>' -->
 
-# A platform that scales with your product
+# 🌌 Scalable Documentation Platform
 
-- **Trusted:** Clear, discoverable docs reduce support load.
-- **Composable:** Embed code, diagrams, and assets.
+- **Discoverable:** Reduces support load
+- **Composable:** Embed code, diagrams, and assets
+- **Maintainable:** Treat docs like code
 
 ---
 
-## Algorithmic complexity (example)
+## 📐 Algorithmic Complexity Example
 
-For a divide-and-conquer routine like merge sort:
+For a divide-and-conquer algorithm like **merge sort**:
 
-- **Time:**  
+- **Time complexity:**
   
 
 \[
-  T(n) = 2\,T\!\left(\frac{n}{2}\right) + \Theta(n) \Rightarrow T(n) = \Theta(n \log n)
+  T(n) = 2 \cdot T\left(\frac{n}{2}\right) + \Theta(n) \Rightarrow T(n) = \Theta(n \log n)
   \]
 
 
 
-- **Space:**  
+- **Space complexity:**
   
 
 \[
@@ -70,36 +70,28 @@ For a divide-and-conquer routine like merge sort:
 
 
 
-Inline notation still works: overall complexity is \(O(n \log n)\).
+Inline notation also works:  
+The overall complexity is \( O(n \log n) \).
 
 ---
 
-## Custom styling via directives
+## 🎨 Custom Styling with Marp Directives
 
 <!-- _class: lead -->
-# Clean, consistent visuals
+# 🎯 Clean Visuals with Theme Classes
 
-- **Slide class:**  
-  This slide uses `_class: lead` to apply larger type and a simplified background.
+- This slide uses `_class: lead` for larger type and simplified background
+- You can also use `.card` for callouts:
 
-- **Card component:**
-  <div class="card">
-    <strong>Release note:</strong> New API endpoints are GA in v2.3. See migration guide for deprecations.
-  </div>
+<div class="card">
+  <strong>Release note:</strong> API v2.3 introduces new endpoints. See migration guide for deprecations.
+</div>
 
 ---
 
-## Contact
+## 📬 Contact & Collaboration
 
-- **Questions:** 24ds2000075@ds.study.iitm.ac.in
-- **Hand-off:** Add new slides in PRs; CI will rebuild artifacts.
+- **Email:** 24ds2000075@ds.study.iitm.ac.in
+- **Workflow:** Add slides via pull requests → CI builds and deploys
 
-> Docs are part of the product—treat them like code.
->
-> <!-- _background: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"><rect width="100%" height="100%" fill="%230b1020"/><circle cx="80%" cy="10%" r="400" fill="%2314203b"/></svg>' -->
-
-# A platform that scales with your product
-
-- **Trusted:** Clear, discoverable docs reduce support load.
-- **Composable:** Embed code, diagrams, and assets.
-
+> Documentation is part of the product. Treat it like code.
