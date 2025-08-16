@@ -35,13 +35,15 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install Marimo
-        run: pip install marimo
+      - name: Install Marimo and notebook dependencies
+        run: |
+          pip install marimo numpy pandas
 
       - name: Export Marimo notebook to HTML
         run: |
           mkdir -p dist/marimo
           marimo export html analysis.py --output dist/marimo/index.html
+
 
       # ---------- D E P L O Y ----------
       - name: Deploy to GitHub Pages
