@@ -1,0 +1,76 @@
+/* @theme iitm */
+@charset "UTF-8";
+
+:root {
+  --bg: #0b1020;
+  --fg: #eaf2ff;
+  --muted: #a9b5c9;
+  --accent: #2aa3ff;
+  --accent-2: #4de1c6;
+  --code-bg: #131a31;
+  --code-fg: #e2ecff;
+  --link: #7cc1ff;
+  --heading: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+section {
+  background: radial-gradient(1200px 800px at 80% -10%, #14203b 0%, var(--bg) 60%) no-repeat fixed;
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: 0.1px;
+}
+
+h1, h2, h3 {
+  color: var(--heading);
+  text-shadow: 0 2px 6px var(--shadow);
+}
+h1 { font-size: 2.0em; }
+h2 { font-size: 1.5em; color: #e6f2ff; }
+h3 { font-size: 1.2em; color: var(--muted); }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+code, pre {
+  background: var(--code-bg) !important;
+  color: var(--code-fg) !important;
+  border-radius: 8px;
+}
+pre { padding: 14px 16px; }
+code { padding: 2px 6px; }
+
+section ul > li { margin: 0.35em 0; }
+
+section h1::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin-top: 10px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: 2px;
+}
+
+section.lead {
+  background: linear-gradient(135deg, #0b1020 0%, #121b33 60%, #0b1020 100%);
+}
+section.lead h1 { font-size: 2.4em; }
+section.lead p { font-size: 1.15em; color: var(--muted); }
+
+footer {
+  color: var(--muted);
+  font-size: 0.85em;
+}
+footer strong { color: var(--accent-2); }
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
