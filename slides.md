@@ -94,4 +94,12 @@ Inline notation still works: overall complexity is \(O(n \log n)\).
 - **Questions:** 24ds2000075@ds.study.iitm.ac.in
 - **Hand-off:** Add new slides in PRs; CI will rebuild artifacts.
 
-> Docs are part of the product—treat them like code. 
+> Docs are part of the product—treat them like code.
+>
+> <!-- _background: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"><rect width="100%" height="100%" fill="%230b1020"/><circle cx="80%" cy="10%" r="400" fill="%2314203b"/></svg>' -->
+
+# A platform that scales with your product
+
+- **Trusted:** Clear, discoverable docs reduce support load.
+- **Composable:** Embed code, diagrams, and assets.
+
