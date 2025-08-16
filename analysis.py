@@ -26,7 +26,11 @@ def __():
 @app.cell
 def __(df, slider):
     # Smooth and compute correlation
-    smoothed = df["y"].rolling(window=slider.value, min_periods=1, center=True).mean()
+    smoothed = df["y"].rolling(
+        window=slider.value,
+        min_periods=1,
+        center=True
+    ).mean()
     corr = df["x"].corr(smoothed)
 
     strength_labels = ("very weak", "weak", "moderate", "strong", "very strong")
