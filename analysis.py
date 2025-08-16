@@ -1,5 +1,5 @@
 # analysis.py
-# Author email: 24ds2000075@ds.study.iitm.ac.in
+# Author: 24ds2000075@ds.study.iitm.ac.in
 
 import marimo as mo
 
@@ -9,9 +9,8 @@ app = mo.App()
 def __(mo):
     """
     Data source cell
-    - Generates a simple synthetic dataset with a linear relationship plus noise.
+    - Generates a simple dataset with a linear relationship plus noise.
     - Outputs: df (DataFrame with columns 'x' and 'y')
-    Downstream: Transform/summary cells depend on df.
     """
     import numpy as np
     import pandas as pd
@@ -28,11 +27,8 @@ def __(mo):
 def __(mo):
     """
     UI control cell
-    - Provides an interactive slider that controls the smoothing window.
-    - Outputs: slider (widget), use slider.value downstream.
-    Downstream: Transform/summary cells depend on slider.value.
+    - Provides an interactive slider controlling smoothing window size.
     """
-    # Odd window sizes are common for centered rolling operations
     slider = mo.ui.slider(3, 51, value=11, step=2, label="Smoothing window (odd)")
     return slider
 
@@ -40,20 +36,13 @@ def __(mo):
 def __(df, slider, mo):
     """
     Transform & summary cell
-    - Depends on: df (data), slider.value (control).
-    - Computes a smoothed version of y and the Pearson correlation between x and smoothed y.
-    - Produces dynamic Markdown that updates reactively when the slider changes.
-    Outputs: smoothed (Series), corr (float), report (Markdown UI object).
+    - Depends on: df, slider.value
+    - Computes smoothed y and correlation with x
     """
     window = slider.value
-
-    # Smooth the y signal with a centered rolling mean
     smoothed = df["y"].rolling(window=window, min_periods=1, center=True).mean()
-
-    # Relationship metric: correlation between x and smoothed y
     corr = df["x"].corr(smoothed)
 
-    # Human-readable strength bucket + simple visual bar
     strength_labels = ("very weak", "weak", "moderate", "strong", "very strong")
     idx = min(int(abs(corr) / 0.2), 4)
     bar = "🟩" * (idx + 1) + "⬜" * (5 - (idx + 1))
@@ -63,10 +52,10 @@ def __(df, slider, mo):
 ### Relationship summary
 
 - Window size: **{window}**
-- Pearson correlation between x and smoothed y: **{corr:.3f}**
+- Pearson correlation: **{corr:.3f}**
 - Strength: **{strength_labels[idx]}** {bar}
 
-> Move the slider to change smoothing and see how the correlation responds.
+> Move the slider to change smoothing and see correlation update.
 """
     )
 
@@ -74,13 +63,8 @@ def __(df, slider, mo):
 
 @app.cell
 def __(report):
-    """
-    Presentation cell
-    - Depends on: report (Markdown UI object).
-    - Purpose: Render dynamic Markdown as visible output.
-    """
+    """Render the dynamic Markdown report."""
     report
 
 if __name__ == "__main__":
-    # Edit mode: uvx marimo edit analysis.py
     app.run()
