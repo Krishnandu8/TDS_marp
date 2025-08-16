@@ -7,6 +7,8 @@ size: 16:9
 paginate: true
 footer: "Page $slide / $total • © 2025"
 math: mathjax
+backgroundImage: url("https://static.vecteezy.com/system/resources/previews/015/882/420/non_2x/modern-minimalist-dark-blue-premium-abstract-background-with-luxury-geometric-dark-shape-exclusive-wallpaper-design-for-website-poster-brochure-presentation-free-vector.jpg")
+backgroundSize: cover
 ---
 
 <!-- _class: lead -->
@@ -35,16 +37,6 @@ math: mathjax
 - Keep bullets concise and scoped per slide  
 - Use directives for layout, backgrounds, and styling  
 - Apply reusable theme classes like `.card` and `.lead`
-
----
-
-![bg](https://upload.wikimedia.org/wikipedia/commons/6/6b/Bitmap_VS_SVG.svg)
-
-# 🌌 Scalable Documentation Platform
-
-- **Discoverable:** Reduces support load  
-- **Composable:** Embed code, diagrams, and assets  
-- **Maintainable:** Treat docs like code
 
 ---
 
