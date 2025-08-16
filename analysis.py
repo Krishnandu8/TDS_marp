@@ -3,7 +3,7 @@
 
 import marimo as mo
 
-# Create the app
+# Create the app instance
 app = mo.App()
 
 @app.cell
@@ -11,7 +11,7 @@ def __(mo):
     """
     Data source cell
     Generates a dataset with a linear relationship plus noise.
-    Output: df (DataFrame with columns x and y)
+    Output: df (DataFrame with columns 'x' and 'y')
     """
     import numpy as np
     import pandas as pd
@@ -36,7 +36,7 @@ def __(df, slider, mo):
     """
     Transform & summary cell
     Depends on: df, slider.value
-    Computes smoothed y and correlation with x
+    Computes smoothed y and correlation with x.
     """
     window = slider.value
     smoothed = df["y"].rolling(window=window, min_periods=1, center=True).mean()
