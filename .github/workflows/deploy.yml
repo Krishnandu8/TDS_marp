@@ -1,4 +1,4 @@
-name: Build and Deploy Marp Slides + Marimo Notebook
+name: Build and Deploy Marp Slides
 
 on:
   push:
@@ -14,7 +14,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      # ---------- M A R P   S L I D E S ----------
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -23,29 +22,12 @@ jobs:
       - name: Install Marp CLI
         run: npm install -g @marp-team/marp-cli
 
-      - name: Build Marp slides
+      - name: Build slides
         run: |
           mkdir -p dist
           marp slides.md -o dist/index.html --html --allow-local-files
           ls -l dist
 
-      # ---------- M A R I M O   N O T E B O O K ----------
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install Marimo and notebook dependencies
-        run: |
-          pip install marimo numpy pandas
-
-      - name: Export Marimo notebook to HTML
-        run: |
-          mkdir -p dist/marimo
-          marimo export html analysis.py --output dist/marimo/index.html
-
-
-      # ---------- D E P L O Y ----------
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
