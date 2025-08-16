@@ -22,28 +22,28 @@ math: mathjax
 
 ## 🛠 Why Marp for Technical Docs
 
-- **Single source of truth:** Markdown → HTML, PDF, PPTX
-- **Version-controlled:** Git diffs, pull requests, and history
-- **CI-friendly:** Auto-publish on every push
+- **Single source of truth:** Markdown → HTML, PDF, PPTX  
+- **Version-controlled:** Git diffs, pull requests, and history  
+- **CI-friendly:** Auto-publish on every push  
 - **Customizable:** Themes, directives, and background assets
 
 ---
 
 ## ✍️ Authoring Guidelines
 
-- Use top-level headings for slide titles
-- Keep bullets concise and scoped per slide
-- Use directives for layout, backgrounds, and styling
+- Use top-level headings for slide titles  
+- Keep bullets concise and scoped per slide  
+- Use directives for layout, backgrounds, and styling  
 - Apply reusable theme classes like `.card` and `.lead`
 
 ---
 
-<!-- _background: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"><rect width="100%" height="100%" fill="%230b1020"/><circle cx="80%" cy="10%" r="400" fill="%2314203b"/></svg>' -->
+![bg](https://upload.wikimedia.org/wikipedia/commons/6/6b/Bitmap_VS_SVG.svg)
 
 # 🌌 Scalable Documentation Platform
 
-- **Discoverable:** Reduces support load
-- **Composable:** Embed code, diagrams, and assets
+- **Discoverable:** Reduces support load  
+- **Composable:** Embed code, diagrams, and assets  
 - **Maintainable:** Treat docs like code
 
 ---
@@ -80,7 +80,7 @@ The overall complexity is \( O(n \log n) \).
 <!-- _class: lead -->
 # 🎯 Clean Visuals with Theme Classes
 
-- This slide uses `_class: lead` for larger type and simplified background
+- This slide uses `_class: lead` for larger type and simplified background  
 - You can also use `.card` for callouts:
 
 <div class="card">
@@ -91,7 +91,7 @@ The overall complexity is \( O(n \log n) \).
 
 ## 📬 Contact & Collaboration
 
-- **Email:** 24ds2000075@ds.study.iitm.ac.in
+- **Email:** 24ds2000075@ds.study.iitm.ac.in  
 - **Workflow:** Add slides via pull requests → CI builds and deploys
 
 > Documentation is part of the product. Treat it like code.
