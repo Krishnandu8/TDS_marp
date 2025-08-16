@@ -8,7 +8,7 @@ paginate: true
 footer: "Page $slide / $total • © 2025"
 math: mathjax
 ---
-
+ 
 <!-- _class: lead -->
 # 📘 Product Documentation with Marp
 
