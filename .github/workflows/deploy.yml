@@ -1,53 +1,11 @@
-name: Build and Deploy Marp Slides + Marimo Notebook
-
-on:
-  push:
-    branches: [ main ]
-
-permissions:
-  contents: write
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      # ---------- M A R P   S L I D E S ----------
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install Marp CLI
-        run: npm install -g @marp-team/marp-cli
-
-      - name: Build Marp slides
-        run: |
-          mkdir -p dist
-          marp slides.md -o dist/index.html --html --allow-local-files
-          ls -l dist
-
-      # ---------- M A R I M O   N O T E B O O K ----------
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install uv and marimo
-        run: |
-          pip install uv
-          uvx install marimo
-
-      - name: Export Marimo notebook to HTML
-        run: |
-          mkdir -p dist/marimo
-          uvx marimo export analysis.py --output dist/marimo/index.html
-
-      # ---------- D E P L O Y ----------
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist
+Run pip install uv
+Collecting uv
+  Downloading uv-0.8.11-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+Downloading uv-0.8.11-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (19.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 19.3/19.3 MB 159.3 MB/s  0:00:00
+Installing collected packages: uv
+Successfully installed uv-0.8.11
+  × No solution found when resolving tool dependencies:
+  ╰─▶ Because install was not found in the package registry and you require
+      install, we can conclude that your requirements are unsatisfiable.
+Error: Process completed with exit code 1.
